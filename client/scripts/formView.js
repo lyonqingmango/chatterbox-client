@@ -24,18 +24,21 @@ var FormView = {
     // };
 
 
-    var message = {
+    let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),
       roomname: 'lobby',
     };
+    // Messages.add(message);
     Parse.create(message);
 
     MessagesView.renderMessage(message);
-    setTimeout(()=> { location.reload(true); }, 300);
+
+
 
 
     console.log('click!');
+    console.log(Messages._data);
   },
 
   setStatus: function(active) {

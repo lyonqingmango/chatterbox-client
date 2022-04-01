@@ -12,12 +12,21 @@ var MessagesView = {
 
   render: function() {
     // TODO: Render _all_ the messages.
+    this.$chats.html('');
+    for (var i = Messages._data.length - 1; i >= 0; i--) {
+      MessagesView.renderMessage(Messages._data[i]);
+    }
+    // Messages._data.forEach((message) => {
+    //   MessagesView.renderMessage(message);
+    // });
+
 
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
-    this.$chats.append(MessageView.render(message));
+    this.$chats.prepend(MessageView.render(message));
+    // this.$chats.append(MessageView.render(message));
 
 
 

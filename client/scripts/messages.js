@@ -5,7 +5,22 @@
 var Messages = {
 
   // TODO: Define how you want to store your messages.
-  _data: {},
+  _data: [],
+
+  upload: function(data) {
+
+    this._data = data;
+  },
+
+
+
+
+
+
+
+
+
+
 
 
 

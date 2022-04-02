@@ -36,6 +36,9 @@ var App = {
 
       Messages.upload(data);
       MessagesView.render();
+      Rooms.upload();
+      RoomsView.render();
+
 
 
       callback();

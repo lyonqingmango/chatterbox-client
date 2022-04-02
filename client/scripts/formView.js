@@ -12,6 +12,7 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
+
     event.preventDefault();
 
     // TODO: Currently, this is all handleSubmit does.
@@ -27,9 +28,10 @@ var FormView = {
     let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),
-      roomname: 'lobby',
+      roomname: Rooms.selected || 'lobby',
     };
-    // Messages.add(message);
+    console.log('roomname' + message.roomname);
+
     Parse.create(message);
 
     MessagesView.renderMessage(message);
@@ -38,7 +40,7 @@ var FormView = {
 
 
     console.log('click!');
-    console.log(Messages._data);
+
   },
 
   setStatus: function(active) {

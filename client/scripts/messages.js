@@ -12,6 +12,20 @@ var Messages = {
     this._data = data;
   },
 
+  selectedRoom: function(roomname) {
+    var res = [];
+
+    this._data.forEach((message)=>{
+      if (message.roomname === roomname) {
+        res.push(message);
+      }
+    });
+    console.log(res + 'res');
+    return res;
+
+
+  }
+
 
 
 

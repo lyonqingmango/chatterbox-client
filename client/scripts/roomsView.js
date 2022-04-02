@@ -16,21 +16,40 @@ var RoomsView = {
   render: function() {
     // TODO: Render out the list of rooms.
     RoomsView.$select.html('');
+    for (var i = Rooms._data.length - 1; i >= 0; i--) {
+      RoomsView.renderRoom(Rooms._data[i]);
+    }
+
+
+
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    this.$select.append(`<option>${roomname}</option>`);
+    this.$select.prepend(`<option>${roomname}</option>`);
 
 
   },
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
+    var roomname = $('select').children('option:selected').val();
+    Rooms.isSelected(roomname);
+    MessagesView.render();
   },
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    var roomname = prompt('Enter room name');
+    if (roomname) {
+      Rooms.add(roomname);
+      RoomsView.render();
+      MessagesView.render();
+    }
+
+
+
+
   }
 
 };

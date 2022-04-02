@@ -13,12 +13,13 @@ var MessagesView = {
   render: function() {
     // TODO: Render _all_ the messages.
     this.$chats.html('');
-    for (var i = Messages._data.length - 1; i >= 0; i--) {
-      MessagesView.renderMessage(Messages._data[i]);
+    var roomname = $('select').children('option:selected').val();
+    var RoomMessages = Messages.selectedRoom(roomname);
+    console.log(RoomMessages);
+    for (var i = RoomMessages.length - 1; i >= 0; i--) {
+      MessagesView.renderMessage(RoomMessages[i]);
     }
-    // Messages._data.forEach((message) => {
-    //   MessagesView.renderMessage(message);
-    // });
+
 
 
   },

@@ -42,8 +42,23 @@ var MessagesView = {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
     var username = $(this).text();
+    console.log($(this));
     Friends.toggleStatus(username);
-    $(this).siblings().toggleClass('friend');
+    console.log(Friends._data);
+    // $(this).toggleClass('friend');
+
+    //loop every chat  each div chat.username=== username;
+    var chatsArray = $('#chats').children('div .chat').children('div .username');
+    for (var i = 0; i < chatsArray.length; i++) {
+      if ($(chatsArray[i]).text() === username) {
+
+        $(chatsArray[i]).toggleClass('friend');
+
+      }
+
+    }
+
+
 
 
   }

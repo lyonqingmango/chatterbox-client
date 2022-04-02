@@ -18,13 +18,6 @@ var FormView = {
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
 
-    // var message = {
-    //   username: App.username,
-    //   text: FormView.$form.find('#message').val(),
-    //   roomname: Rooms.selected || 'lobby'
-    // };
-
-
     let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),

@@ -16,17 +16,18 @@ var RoomsView = {
   render: function() {
     // TODO: Render out the list of rooms.
     RoomsView.$select.html('');
+
     for (var i = Rooms._data.length - 1; i >= 0; i--) {
       RoomsView.renderRoom(Rooms._data[i]);
+      if (Rooms._data[i] === 'lobby') {
+        $('option[value="lobby"]').attr('selected', 'selected');
+      }
     }
-
-
-
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    this.$select.prepend(`<option>${roomname}</option>`);
+    this.$select.prepend(`<option value="${roomname}">${roomname}</option>`);
 
 
   },
@@ -34,6 +35,7 @@ var RoomsView = {
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
     var roomname = $('select').children('option:selected').val();
+    console.log('handleChange' + roomname);
     Rooms.isSelected(roomname);
     MessagesView.render();
   },
@@ -46,9 +48,6 @@ var RoomsView = {
       RoomsView.render();
       MessagesView.render();
     }
-
-
-
 
   }
 

@@ -31,7 +31,7 @@ var Rooms = {
       }
 
     }
-    console.log(Rooms._data);
+
   }
 
 

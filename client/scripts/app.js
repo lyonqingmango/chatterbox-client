@@ -21,7 +21,7 @@ var App = {
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
-    // setInterval(App.fetch, 3000);
+    setInterval(App.fetch, 3000);
 
   },
 
